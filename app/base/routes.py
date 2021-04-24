@@ -77,7 +77,7 @@ def register():
                                     form=create_account_form)
      
         # Check the Key
-        if key == "daybreak reaction unaltered squeamish pushchair":
+        if key != "daybreak reaction unaltered squeamish pushchair":
             return render_template( 'accounts/register.html', 
                                     msg='Wrong Key', 
                                     success=False,
