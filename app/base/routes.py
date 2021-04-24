@@ -58,6 +58,7 @@ def register():
 
         username  = request.form['username']
         email     = request.form['email'   ]
+        key       = request.form['key'     ]
 
         # Check usename exists
         user = User.query.filter_by(username=username).first()
@@ -72,6 +73,13 @@ def register():
         if user:
             return render_template( 'accounts/register.html', 
                                     msg='Email already registered', 
+                                    success=False,
+                                    form=create_account_form)
+     
+        # Check the Key
+        if key == "daybreak reaction unaltered squeamish pushchair":
+            return render_template( 'accounts/register.html', 
+                                    msg='Wrong Key', 
                                     success=False,
                                     form=create_account_form)
 
